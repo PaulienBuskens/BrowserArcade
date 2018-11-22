@@ -4,16 +4,17 @@
 
 <p>generate "ball and move the new ball to the center of the screen:</p>
 
-<button onclick="openWin()">generate "ball"</button>
-<button onclick="moveWin()">Move "ball"</button>
+<button onclick="openWin()">generate ball</button>
+<button onclick="moveWin()">Move ball</button>
 
 <script>
 var ball;
 
 function openWin() {
-    ball=window.open("", "ball", "width=200, height=100");
-    ball.document.write("<p>ball</p>");
+    ball=window.open("", "ball", "width=150, height=150");
+    ball.document.write('<img src="img/Soccer_ball.png", "width=130, height=130">');
 }
+
 
 function moveWin() {
     ball.moveTo(500, 300);
