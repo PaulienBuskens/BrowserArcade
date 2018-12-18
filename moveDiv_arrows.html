@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Move div arrows</title>
+
+  <style>
+    #rect{
+      height:200px;
+      width:200px;
+      border: 1px solid;
+      position: relative;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="rect"></div>
+
+<script>
+
+  var r = document.getElementById('rect');
+
+  var left = 0;
+  var top = 0;
+  console.log(top);
+
+  function move(evt){
+    var keycode = evt.keyCode;
+  //  console.log(keycode);
+    if(evt.keyCode == 40){
+      top +=2;
+      rect.style.top = parseInt(top) + "px";
+      console.log("move");
+      console.log(top);
+    }
+  }
+
+  document.onkeydown = move;
+</script>
+</body>
+</html>

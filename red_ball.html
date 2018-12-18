@@ -13,10 +13,11 @@ canvas {
 <script>
 
 var ball;
+var myGameArea;
 
 function startGame() {
-    /*myGameArea.start();
-    myGamePiece = new component(30, 30, "red", 10, 120);*/
+    myGameArea.start();
+    myGamePiece = new component(30, 30, "red", 10, 120);
     ball = window.open("", "ball", "width=150, height=150");
     ball.document.write('<img src="img/Soccer_ball.png", "width=120, height=120">');
 }
