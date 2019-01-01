@@ -2,6 +2,7 @@
 <html>
 
 <body>
+  <a href="index.html">Home</a>
 
   <p>generate "ball and move the new ball to the center of the screen:</p>
 
@@ -11,14 +12,13 @@
   <button onclick="moveRight()">Move ball to the right</button>
   <button onclick="moveUp()">Move ball up</button>
   <button onclick="moveDown()">Move ball down</button>
-  <p>Move ball with key down</p>
 
   <script>
     var ball;
 
 
     function openWin() {
-      ball = window.open("", "ball", "width=150, height=150");
+      ball = window.open("", "ball", "width=120, height=125");
       ball.document.write('<img src="img/Soccer_ball.png", "width=120, height=120">');
     }
 
@@ -28,27 +28,25 @@
       ball.focus();
     }
 
-    function moveLeft(){
-      ball.moveTo(ball.screenX-100);
+    function moveLeft() {
+      ball.moveTo(ball.screenX - 100, ball.screenY);
       ball.focus()
     }
 
-    function moveRight(){
-      ball.moveTo(ball.screenX+100);
+    function moveRight() {
+      ball.moveTo(ball.screenX + 100, ball.screenY);
       ball.focus()
     }
 
-    function moveUp(){
-      ball.moveTo(ball.screenX,(ball.screenY-100));
+    function moveUp() {
+      ball.moveTo(ball.screenX, (ball.screenX, ball.screenY - 100));
       ball.focus()
     }
 
-    function moveDown(){
-      ball.moveTo(ball.screenX,(ball.screenY+100));
+    function moveDown() {
+      ball.moveTo(ball.screenX, (ball.screenX, ball.screenY + 100));
       ball.focus()
     }
-
-
   </script>
 
 </body>
