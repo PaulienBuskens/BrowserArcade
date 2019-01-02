@@ -1,0 +1,23 @@
+{
+  "name": "browserarcade",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "mousetrap": "^1.6.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PaulienBuskens/BrowserArcade.git"
+  },
+  "author": "Paulien Buskens\\",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PaulienBuskens/BrowserArcade/issues"
+  },
+  "homepage": "https://github.com/PaulienBuskens/BrowserArcade#readme"
+}
