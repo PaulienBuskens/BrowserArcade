@@ -59,21 +59,18 @@ setInterval(move, intervalBall);
 function openWin2() {
     peddle = window.open("", "peddle", "width=50, height=150");
     peddle.document.write('<img src="img/balk.jpg", "width=20, height=120">');
-    peddle.moveTo(0, 0);
+    peddle.moveTo(900, 0);
     peddle.focus();
 }
+
+
 
 
 var interval = 20;
 
 function moveWin() {
-    Mousetrap.bind('up', function () {
-        peddle.moveTo(peddle.screenX, (peddle.screenX, peddle.screenY - 100));
-    });
-    Mousetrap.bind('down', function () {
-        peddle.moveTo(peddle.screenX, (peddle.screenX, peddle.screenY + 100));
-    });
-
+   
+    peddle.moveTo(peddle.screenX,ball.screenY);
 }
 
 
