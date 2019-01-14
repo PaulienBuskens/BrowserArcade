@@ -9,7 +9,7 @@ var intervalBox = 10;
 var steps = 7;
 var hitground = false;
 var smaller;
-
+var endgame;
 
 function openMario() {
   mario = window.open("", "mario", "width=80, height=250");
@@ -28,7 +28,7 @@ function openBox() {
 function openEnemy() {
   enemy = window.open("", "enemy", "width=160, height=160");
   enemy.document.write('<img src="img/mario_enemy.png", "width=120, height=120">');
-  enemy.moveTo(1400, 800);
+  enemy.moveTo(1400, 570);
   enemy.focus();
 }
 
@@ -84,26 +84,31 @@ function hitBox() {
 
 }
 
-function hitEnemy(){
-  if((mario.screenX, mario.screenY) == (enemy.screenX, enemy.screenY)){
+function hitEnemy() {
+  if ((mario.screenX, mario.screenY) == (enemy.screenX, enemy.screenY)) {
     mario.close();
-    
+    enemy.close();
+    box.close();
+    endgame = window.open("", "endgame", "width=80, height=50");
+    endgame.document.write('<h2>Your Dead</h2>');
+    endgame.moveTo(600, 300);
+    endgame.focus();
   }
 }
 
-function moveEnemy(){
+function moveEnemy() {
   enemy.moveTo(enemy.screenX - 2, enemy.screenY);
   enemy.resizeTo(160, 160);
 }
 
-setInterval(hitEnemy,interval);
+setInterval(hitEnemy, interval);
 setInterval(hitBox, intervalBox);
 setInterval(moveMario, interval);
-setInterval(moveEnemy,interval);
+setInterval(moveEnemy, interval);
 
 function openGame() {
   openBox();
   openEnemy();
   openMario();
-  
+
 }
