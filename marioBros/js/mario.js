@@ -10,6 +10,7 @@ var steps = 7;
 var hitground = false;
 var smaller;
 var endgame;
+var won;
 
 function openMario() {
   mario = window.open("", "mario", "width=80, height=250");
@@ -96,6 +97,18 @@ function hitEnemy() {
   }
 }
 
+function wingame(){
+  if((mario.screenX) == (1300)){
+    won = window.open("", "won", "width=80, height=50");
+    won.document.write('<h2>Your won</h2>');
+    won.moveTo(600, 300);
+    won.focus();
+    mario.close();
+    box.close();
+    enemy.close();
+  }
+}
+
 function moveEnemy() {
   enemy.moveTo(enemy.screenX - 2, enemy.screenY);
   enemy.resizeTo(160, 160);
@@ -105,6 +118,7 @@ setInterval(hitEnemy, interval);
 setInterval(hitBox, intervalBox);
 setInterval(moveMario, interval);
 setInterval(moveEnemy, interval);
+setInterval(wingame,interval);
 
 function openGame() {
   openBox();
