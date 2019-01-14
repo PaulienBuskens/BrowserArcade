@@ -1,3 +1,7 @@
+body{
+    font-family: sans-serif;
+}
+
 a{
     text-decoration: none;
     color:black;
@@ -7,4 +11,10 @@ a{
 
 a:hover{
     text-decoration: underline;
+}
+
+.pong, .mario{
+    display: inline-block;
+    width: 45%;
+    float:left;
 }
