@@ -1,10 +1,14 @@
 var mario;
+var marioBig;
 var box;
 var enemy;
 var pipe;
 var alert;
 var interval = 20;
+var intervalBox = 10;
 var steps = 7;
+var hitground = false;
+var smaller;
 
 
 function openMario() {
@@ -21,8 +25,15 @@ function openBox() {
   box.focus();
 }
 
+function openEnemy() {
+  enemy = window.open("", "enemy", "width=160, height=160");
+  enemy.document.write('<img src="img/mario_enemy.png", "width=120, height=120">');
+  enemy.moveTo(1400, 800);
+  enemy.focus();
+}
+
 function moveMario() {
-  var hitground = false;
+
   if (mario.screenY >= 570) {
     hitground = true;
     console.log("bottom");
@@ -31,12 +42,8 @@ function moveMario() {
     mario.resizeTo(80, 250);
     hitground = false;
     console.log('fall');
-    while ((mario.screenX, mario.screenY) == (box.screenY, box.screenY)) {
-      hitground = true;
-    }
+
   }
-
-
 
   if (hitground) {
     Mousetrap.bind("up", function () {
@@ -51,9 +58,52 @@ function moveMario() {
   }
 }
 
+function smaller() {
+  smaller = setTimeout(smallFunc, 5000);
+}
+
+function smallFunc() {
+  mario.close();
+  mario = window.open("", "mario", "width=80, height=250");
+  mario.document.write('<img src="img/mario.png", "width=60, height=240">');
+  mario.moveTo(600, 400);
+}
+
+function hitBox() {
+
+  if ((mario.screenX, mario.screenY) == (box.screenX, box.screenY)) {
+    mario.close();
+    box.close();
+    mario = window.open("", "mario", "width=80, height=400");
+    mario.document.write('<img src="img/mario.png", "width=80, height=300">');
+    mario.moveTo(600, 400);
+    console.log("box");
+    smaller();
+
+  }
+
+}
+
+function hitEnemy(){
+  if((mario.screenX, mario.screenY) == (enemy.screenX, enemy.screenY)){
+    mario.close();
+    
+  }
+}
+
+function moveEnemy(){
+  enemy.moveTo(enemy.screenX - 2, enemy.screenY);
+  enemy.resizeTo(160, 160);
+}
+
+setInterval(hitEnemy,interval);
+setInterval(hitBox, intervalBox);
 setInterval(moveMario, interval);
+setInterval(moveEnemy,interval);
 
 function openGame() {
-  openMario();
   openBox();
+  openEnemy();
+  openMario();
+  
 }
